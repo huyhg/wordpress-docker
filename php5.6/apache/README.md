@@ -6,7 +6,7 @@ Server on a PHP 5.x runtime.
 For more information, see the
 [Official Image Launcher Page](https://console.cloud.google.com/launcher/details/google/wordpress4-php5-apache).
 
-Pull command:
+Pull command (first install [gcloud](https://cloud.google.com/sdk/downloads)):
 
 ```shell
 gcloud docker -- pull launcher.gcr.io/google/wordpress4-php5-apache
@@ -33,6 +33,9 @@ Dockerfile for this image can be found [here](https://github.com/GoogleCloudPlat
   * [Volumes](#references-volumes)
 
 # <a name="using-kubernetes"></a>Using Kubernetes
+
+Consult [Launcher container documentation](https://cloud.google.com/launcher/docs/launcher-container)
+for additional information about setting up your Kubernetes environment.
 
 ## <a name="running-wordpress-kubernetes"></a>Running Wordpress
 
@@ -67,7 +70,10 @@ spec:
           value: "example-password"
 ```
 
-Run the following to expose the port:
+Run the following to expose the port.
+Depending on your cluster setup, this might expose your service to the
+Internet with an external IP address. For more information, consult
+[Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/).
 
 ```shell
 kubectl expose pod some-wordpress --name some-wordpress-80 \
@@ -102,7 +108,10 @@ spec:
           value: "root"
 ```
 
-Run the following to expose the port:
+Run the following to expose the port.
+Depending on your cluster setup, this might expose your service to the
+Internet with an external IP address. For more information, consult
+[Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/).
 
 ```shell
 kubectl expose pod some-wordpress --name some-wordpress-80 \
@@ -179,7 +188,10 @@ spec:
       storage: 5Gi
 ```
 
-Run the following to expose the port:
+Run the following to expose the port.
+Depending on your cluster setup, this might expose your service to the
+Internet with an external IP address. For more information, consult
+[Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/).
 
 ```shell
 kubectl expose pod some-wordpress --name some-wordpress-80 \
@@ -187,6 +199,9 @@ kubectl expose pod some-wordpress --name some-wordpress-80 \
 ```
 
 # <a name="using-docker"></a>Using Docker
+
+Consult [Launcher container documentation](https://cloud.google.com/launcher/docs/launcher-container)
+for additional information about setting up your Docker environment.
 
 ## <a name="running-wordpress-docker"></a>Running Wordpress
 
